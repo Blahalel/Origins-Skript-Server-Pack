@@ -8,5 +8,7 @@ This requires no Skript addons, HOWEVER, you must add your own custom recipes if
 This Skript is for 1.20.6+, so if an older version is used, major parts of origins may be **missing**!!!
 Of course, one requirement is the Skript plugin which this is built on :)
 
+:)
+
 Good luck, have fun! o/
 -Blahalel
