@@ -1,0 +1,6 @@
+command /getorigin [<player>]:
+  trigger:
+    if {org.%uuid of player%} is "Merling" or "Blazeborn" or "Feline" or "Shulk" or "Phantom" or "Sculk" or "Bee" or "Ghastling" or "Hare" or "Fox" or "Reptilian" or "Skeleton" or "Husk" or "Zombie" or "Human":
+      send "%arg-1% is a %{org.%uuid of arg-1%}%"
+    if {org.%uuid of player%} is not "Merling" or "Blazeborn" or "Feline" or "Shulk" or "Phantom" or "Sculk" or "Bee" or "Ghastling" or "Hare" or "Fox" or "Reptilian" or "Skeleton" or "Husk" or "Zombie" or "Human":
+      send "%arg-1% is an %{org.%uuid of arg-1%}%"

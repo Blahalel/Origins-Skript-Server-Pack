@@ -1,0 +1,57 @@
+on consume of apple:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of golden apple:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of enchanted golden apple:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of melon:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of sweet berries:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of glow berries:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of chorus fruit:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of carrot:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of golden carrot:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of potato:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of baked potato:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of poisonous potato:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of beetroot:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of dried kelp:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of bread:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of cookie:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of pumpkin pie:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of mushroom stew:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event
+on consume of beetroot soup:
+  if {org.%uuid of player%} is "Feline" or "Arachnid":
+    cancel event

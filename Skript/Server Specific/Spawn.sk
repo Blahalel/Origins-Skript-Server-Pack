@@ -1,0 +1,31 @@
+# Thanks for using my script!
+#
+# My Info:
+# Ingame-username: SkyyIsCool
+# Discord: Skyy#0268
+
+options:
+    prefix: &8[&e&lSpawn&8]&f
+    spawnCommandCooldown: 3 seconds
+    setSpawnCommandPermission: commands.setspawn
+    noPermissionMessage: &cYou do not have permission to use this command.
+
+command /spawn:
+    cooldown: {@spawnCommandCooldown}
+    description: Teleport to the spawn point.
+    usage: /spawn
+    trigger:
+        if {spawn} is set:
+            teleport player to {spawn}
+            send "{@prefix} &aTeleported to &eSpawn&a!" to player
+        else:
+            send "{@prefix} &cSpawn is not set, please contact a server administrator to use &e/setspawn&c." to player
+
+command /setspawn:
+    permission: {@setSpawnCommandPermission}
+    permission message: {@noPermissionMessage}
+    description: Set the spawn point.
+    usage: /setspawn
+    trigger:
+        set {spawn} to location of player
+        send "{@prefix} &aLocation for &eSpawn&a has been set to your current location." to player

@@ -1,0 +1,4 @@
+ command /originorb:
+  permission: op
+  trigger:
+    give player 1 phantom membrane named "&9&lOrb of Origin" with lore "&bThis can be used to change your Origin."

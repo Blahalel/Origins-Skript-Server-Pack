@@ -1,0 +1,2 @@
+This set of skripts is for server utilities and can all be removed without causing issues :)
+Also, the DiscordLink skript contains *my* server's link. You may replace it with your own.

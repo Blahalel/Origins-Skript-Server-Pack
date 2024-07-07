@@ -1,0 +1,64 @@
+ on consume of raw beef:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of steak:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of raw porkchop:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of cooked porkchop:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of raw mutton:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of cooked mutton:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of raw chicken:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of cooked chicken:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of raw rabbit:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of cooked rabbit:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of raw cod:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of cooked cod:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of raw salmon:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of cooked salmon:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of tropical fish:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of pufferfish:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of rotten flesh:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of spider eye:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+on consume of rabbit stew:
+  if {org.%uuid of player%} is "Hare":
+    cancel event
+
+# v ORIGIN EXCLUSIVES v
+
+on consume of carrot:
+  if {org.%uuid of player%} is "Hare":
+    apply potion of regeneration of tier 2 to player for 15 seconds
+

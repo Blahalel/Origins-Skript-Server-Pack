@@ -1,0 +1,2 @@
+This file is for Origins-related commands only people with Operator status can use.
+They aren't requirements to the game, but I greatly recommend them for your server :)

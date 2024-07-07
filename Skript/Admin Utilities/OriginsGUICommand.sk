@@ -1,0 +1,171 @@
+command /origins:
+  aliases: /origin
+  permission: op
+  trigger:
+    open chest inventory with 3 rows named "&eOrigins" to player
+    set slot 0 of player's current inventory to white stained glass pane named "&7"
+    set slot 1 of player's current inventory to white stained glass pane named "&7"
+    set slot 2 of player's current inventory to white stained glass pane named "&7"
+    set slot 3 of player's current inventory to white stained glass pane named "&7"
+    set slot 4 of player's current inventory to command block named "&cChoose your Origin"
+    set slot 5 of player's current inventory to white stained glass pane named "&7"
+    set slot 6 of player's current inventory to white stained glass pane named "&7"
+    set slot 7 of player's current inventory to white stained glass pane named "&7"
+    set slot 8 of player's current inventory to white stained glass pane named "&7"
+    set slot 9 of player's current inventory to player skull named "&fHuman" with lore "&7A normal Survival experience."
+    set slot 10 of player's current inventory to feather named "&7Avian" with lore "&7A bird-like origin capable of rudimentary gliding."
+    set slot 11 of player's current inventory to spider eye named "&8Arachnid" with lore "&7A spider-like origin capable of climbing walls."
+    set slot 12 of player's current inventory to elytra named "&9Elytrian" with lore "&7A winged origin capable of flight over long distance."
+    set slot 13 of player's current inventory to shulker shell named "&5Shulk" with lore "&7An armored origin capable of accessing a portable storage."
+    set slot 14 of player's current inventory to orange wool named "&6Feline" with lore "&7A catlike origin capable of making large leaps and dealing damage."
+    set slot 15 of player's current inventory to ender pearl named "&1Enderian" with lore "&7Children of the End, capable of shooting ender pearls."
+    set slot 16 of player's current inventory to bucket of cod named "&3Merfolk" with lore "&7Half fish, half human beings living underwater. 3 subtypes."
+    set slot 17 of player's current inventory to blaze powder named "&4Blazeborn" with lore "&7Children of the Nether, with affinity to brimstone."
+    set slot 18 of player's current inventory to phantom membrane named "&7Phantom" with lore "&7A ghoullish half human capable of becoming invisible."
+    set slot 19 of player's current inventory to totem of undying named "&eEvoker" with lore "&7Magical beings capable of conjuring."
+    set slot 20 of player's current inventory to orange candle named "&fInchling" with lore "&7Very small."
+    set slot 21 of player's current inventory to honeycomb named "&eBee" with lore "&7A winged origin capable of levitation, and using beehives."
+    set slot 22 of player's current inventory to ghast tear named "&7Ghastling" with lore "&7Relatives of the Ghast, with an affinity for flight."
+    set slot 23 of player's current inventory to rabbit foot named "&eHare" with lore "&7A small origin capable of high speeds on Overworld terrain."
+    set slot 24 of player's current inventory to rotten flesh named "&6Undead" with lore "&7A member of the Undead forces. 3 subtypes."
+    set slot 25 of player's current inventory to leather named "&cFox" with lore "&7An origin capable of high speeds and damage."
+    set slot 26 of player's current inventory to scute named "&2Reptilian" with lore "&7A lizard-like origin with an affinity for water."
+
+on inventory click:
+  if name of event-inventory is "&eOrigins":
+    cancel event
+
+    if index of event-slot is 9:
+      play sound "block.note_block.pling"
+      set {org.%uuid of player%} to "Human"
+      close the player's inventory
+
+    if index of event-slot is 10:
+      play sound "entity.chicken.ambient"
+      set {org.%uuid of player%} to "Avian"
+      close the player's inventory
+
+    if index of event-slot is 11:
+      play sound "entity.spider.death"
+      set {org.%uuid of player%} to "Arachnid"
+      close the player's inventory
+
+    if index of event-slot is 12:
+      play sound "entity.ender_dragon.flap"
+      set {org.%uuid of player%} to "Elytrian"
+      close the player's inventory
+
+    if index of event-slot is 13:
+      play sound "entity.shulker.ambient"
+      set {org.%uuid of player%} to "Shulk"
+      close the player's inventory
+
+    if index of event-slot is 14:
+      play sound "entity.cat.purreow"
+      set {org.%uuid of player%} to "Feline"
+      close the player's inventory
+
+    if index of event-slot is 15:
+      play sound "entity.enderman.teleport"
+      set {org.%uuid of player%} to "Enderian"
+      close the player's inventory
+
+    if index of event-slot is 16:
+      play sound "entity.enderman.teleport"
+      set {org.%uuid of player%} to "Merling"
+      close the player's inventory
+
+    if index of event-slot is 17:
+      play sound "entity.blaze.shoot"
+      set {org.%uuid of player%} to "Blazeborn"
+      close the player's inventory
+
+    if index of event-slot is 18:
+      play sound "entity.phantom.ambient"
+      set {org.%uuid of player%} to "Phantom"
+      close the player's inventory
+
+    if index of event-slot is 19:
+      play sound "entity.evoker.cast_spell"
+      set {org.%uuid of player%} to "Evoker"
+      close the player's inventory
+
+    if index of event-slot is 20:
+      play sound "entity.rabbit.jump"
+      set {org.%uuid of player%} to "Inchling"
+      close the player's inventory
+
+    if index of event-slot is 21:
+      play sound "entity.bee.pollinate"
+      set {org.%uuid of player%} to "Bee"
+      close the player's inventory
+
+    if index of event-slot is 22:
+      play sound "entity.ghast.ambient"
+      set {org.%uuid of player%} to "Ghastling"
+      close the player's inventory
+
+    if index of event-slot is 23:
+      play sound "entity.rabbit.ambient"
+      set {org.%uuid of player%} to "Hare"
+      close the player's inventory
+
+    if index of event-slot is 25:
+      play sound "entity.fox.ambient"
+      set {org.%uuid of player%} to "Fox"
+      close the player's inventory
+
+    if index of event-slot is 26:
+      play sound "entity.frog.ambient"
+      set {org.%uuid of player%} to "Reptilian"
+      close the player's inventory
+
+    if index of event-slot is 16:
+      play sound "entity.zombie.death"
+      set player's max health to 10
+      close the player's inventory
+      open chest inventory with 3 rows named "&eUndead Type" to player
+      set slot 0 of player's current inventory to redstone dust named "&cChoose your Undead Subtype"
+      set slot 1 of player's current inventory to white stained glass pane named "&7"
+      set slot 2 of player's current inventory to white stained glass pane named "&7"
+      set slot 3 of player's current inventory to white stained glass pane named "&7"
+      set slot 4 of player's current inventory to white stained glass pane named "&7"
+      set slot 5 of player's current inventory to white stained glass pane named "&7"
+      set slot 6 of player's current inventory to white stained glass pane named "&7"
+      set slot 7 of player's current inventory to white stained glass pane named "&7"
+      set slot 8 of player's current inventory to white stained glass pane named "&7"
+      set slot 9 of player's current inventory to white stained glass pane named "&7"
+      set slot 10 of player's current inventory to white stained glass pane named "&7"
+      set slot 11 of player's current inventory to bone named "&fSkeleton" with lore "&7Burns in sunlight, doesn't have natural heal. Use bonemeal to heal."
+      set slot 12 of player's current inventory to white stained glass pane named "&7"
+      set slot 13 of player's current inventory to sand named "&eHusk" with lore "&7Doesn't burn in sunlight, doesn't have natural heal. Use raw meat to heal. On hit, deals poison."
+      set slot 14 of player's current inventory to white stained glass pane named "&7"
+      set slot 15 of player's current inventory to rotten flesh named "&2Zombie" with lore "&7Burns in sunlight, doesn't have natural healing. Use raw meat to heal. Deals extra true damage."
+      set slot 16 of player's current inventory to white stained glass pane named "&7"
+      set slot 17 of player's current inventory to white stained glass pane named "&7"
+      set slot 18 of player's current inventory to white stained glass pane named "&7"
+      set slot 19 of player's current inventory to white stained glass pane named "&7"
+      set slot 20 of player's current inventory to white stained glass pane named "&7"
+      set slot 21 of player's current inventory to white stained glass pane named "&7"
+      set slot 22 of player's current inventory to white stained glass pane named "&7"
+      set slot 23 of player's current inventory to white stained glass pane named "&7"
+      set slot 24 of player's current inventory to white stained glass pane named "&7"
+      set slot 25 of player's current inventory to white stained glass pane named "&7"
+      set slot 26 of player's current inventory to white stained glass pane named "&7"
+on inventory click:
+  if name of event-inventory is "&eUndead Type":
+    cancel event
+    if index of event-slot is 11:
+      play sound "entity.skeleton.ambient"
+      set {org.%uuid of player%} to "Skeleton"
+      close the player's inventory
+
+    if index of event-slot is 13:
+      play sound "entity.husk.ambient"
+      set {org.%uuid of player%} to "Husk"
+      close the player's inventory
+
+    if index of event-slot is 15:
+      play sound "entity.zombie.death"
+      set {org.%uuid of player%} to "Zombie"
+      close the player's inventory

@@ -1,0 +1,457 @@
+# REFS :) - https://docs.google.com/document/d/1uISLQRmiqBHL7wjpxDiTaZw862JamatB76xJ2WQIm40/edit
+
+on swap hand items:
+  cancel event
+
+on swap hand items:
+  if {org.%uuid of player%} is "Elytrian":
+    if difference between now and {OriginsAbilities::%player's uuid%.elytrianboost.lastUsed} is less than 10 seconds:
+      cancel event
+    else:
+      push player forward at speed 2
+      push player up at speed 2
+      set {OriginsAbilities::%player's uuid%.elytrianboost.lastUsed} to now
+    player is sneaking:
+      if difference between now and {OriginsAbilities::%player's uuid%.elytriandash.lastUsed} is less than 5 seconds:
+        cancel event
+      else:
+        push player forward at speed 2
+        set {OriginsAbilities::%player's uuid%.elytriandash.lastUsed} to now
+on player move:
+  if {org.%uuid of player%} is "Elytrian":
+    execute command "/tag %player% add elytraguy"
+on player move:
+  if {org.%uuid of player%} is "Elytrian":
+    if amount of elytra in player's inventory is less than 1:
+      execute command "/item replace entity @a[tag=elytraguy] armor.chest with elytra[enchantments={levels:{binding_curse:1,vanishing_curse:1},show_in_tooltip:false},unbreakable={},custom_model_data=2] 1"
+on player move:
+  if {org.%uuid of player%} is "Elytrian":
+    if amount of elytra in player's inventory is more than 1:
+      execute command "/clear @a[tag=elytraguy] elytra[enchantments={levels:{binding_curse:1,vanishing_curse:1},show_in_tooltip:false},unbreakable={},custom_model_data=2]"
+on player move:
+  if {org.%uuid of player%} is "Elytrian":
+    if player is on the ground:
+      apply potion of weakness of tier 1 without any particles to the player for 2 seconds replacing the existing effect
+
+on swap hand items:
+	if {org.%uuid of player%} is "Avian":
+		player is on ground:
+			push player up at speed 1.5
+on player move:
+  if {org.%uuid of player%} is "Avian":
+    apply potion of slow falling of tier 1 without any particles to the player for 5 seconds replacing the existing effect
+    apply potion of jump boost of tier 2 without any particles to the player for 5 seconds replacing the existing effect
+    apply potion of speed of tier 2 without any particles to the player for 5 seconds replacing the existing effect
+
+on player move:
+  if {org.%uuid of player%} is "Merling":
+    if player is holding a pickaxe:
+      enchant the player's tool with fortune 3
+  if block at player is water or seagrass or kelp or tall seagrass or sea pickle:
+    if {org.%uuid of player%} is "Merling":
+      apply water breathing 5 without any particles to the player for 30 seconds replacing the existing effect
+      apply Dolphin's Grace 5 without any particles to the player for 5 seconds replacing the existing effect
+      apply night vision 10 without any particles to the player for 30 seconds replacing the existing effect
+      apply haste 15 without any particles to player for 30 seconds replacing the existing effect
+      apply potion of regeneration of tier 1 without any particles to player for 3 seconds replacing the existing effect
+      remove poison from the player
+  if block at player is not water or seagrass or kelp or tall seagrass or sea pickle:
+    if {org.%uuid of player%} is "Merling":
+      remove Dolphin's Grace from the player
+      remove night vision from the player
+      remove haste from the player
+      apply potion of poison of tier 1 without any particles to player for 3 seconds replacing the existing effect
+on swap hand items:
+  if block at player is water or seagrass or kelp or tall seagrass or sea pickle:
+    if {org.%uuid of player%} is "Merling":
+      if difference between now and {OriginsAbilities::%player's uuid%.merlingdash.lastUsed} is less than 2 seconds:
+        cancel event
+      else:
+        push player forward at speed 3
+        set {OriginsAbilities::%player's uuid%.merlingdash.lastUsed} to now
+on damage:
+  if {org.%victim's uuid%} is "Merling":
+    if damage was caused by drowning:
+      cancel event
+on consume of dried kelp:
+  if {org.%uuid of player%} is "Merling":
+    apply potion of saturation of tier 1 without any particles to the player for 5 seconds replacing the existing effect
+
+on player move:
+  if {org.%uuid of player%} is "Blazeborn":
+    remove poison from the player
+    apply potion of fire resistance of tier 1 without any particles to the player for 30 seconds replacing the existing effect
+    if block at player is lava:
+      apply strength 2 without any particles to the player for 3 seconds replacing the existing effect
+      remove wither from the player
+    if block at player is water:
+      apply potion of wither of tier 1 without any particles to the player for 2 seconds replacing the existing effect
+      remove strength from the player
+    if block at player is air:
+      remove wither from the player
+on swap hand items:
+  if {org.%uuid of player%} is "Blazeborn":
+    if difference between now and {OriginsAbilities::%player's uuid%.fireball.lastUsed} is less than 5 seconds:
+      cancel event
+    else:
+      shoot a fireball from the player
+      set {OriginsAbilities::%player's uuid%.fireball.lastUsed} to now
+on break of iron ore:
+  if {org.%uuid of player%} is "Blazeborn":
+    cancel event
+    set block to air
+    drop iron ingot
+on break of gold ore:
+  if {org.%uuid of player%} is "Blazeborn":
+    cancel event
+    set block to air
+    drop gold ingot
+on break of ancient debris:
+  if {org.%uuid of player%} is "Blazeborn":
+    cancel event
+    set block to air
+    drop netherite scrap
+on damage by player:
+  if {org.%attacker's uuid%} is "Blazeborn":
+    ignite the victim
+
+on player move:
+  if {org.%uuid of player%} is "Enderian":
+    set player's max health to 15
+  if block at player is water:
+    if {org.%uuid of player%} is "Enderian":
+      apply potion of wither of tier 3 to the player for 2 seconds replacing the existing effect
+  if block at player is air:
+    if {org.%uuid of player%} is "Enderian":
+      remove wither from the player
+on swap hand items:
+  if {org.%uuid of player%} is "Enderian":
+    if difference between now and {OriginsAbilities::%player's uuid%.enderpearl.lastUsed} is less than 5 seconds:
+      cancel event
+    else:
+      shoot an ender pearl from the player
+      set {OriginsAbilities::%player's uuid%.enderpearl.lastUsed} to now
+
+on player move:
+  if {org.%uuid of player%} is "Feline":
+    set player's safe fall distance attribute to 1000
+    apply potion of strength of tier 2 to the player for 30 seconds replacing the existing effect
+  if block at player is water:
+    if {org.%uuid of player%} is "Feline":
+      apply potion of slowness of tier 3 to the player for 3 seconds replacing the existing effect
+on swap hand items:
+  if {org.%uuid of player%} is "Feline":
+    if difference between now and {OriginsAbilities::%player's uuid%.felineleap.lastUsed} is less than 1.5 seconds:
+      cancel event
+    else:
+      player is on ground:
+        push player forward at speed 3
+        apply potion of strength of tier 4 to the player for 4 seconds replacing the existing effect
+        set {OriginsAbilities::%player's uuid%.felineleap.lastUsed} to now
+
+on damage by player:
+  if {org.%attacker's uuid%} is "Arachnid":
+    apply potion of poison of tier 2 to victim for 3 seconds replacing the existing effect
+on swap hand items:
+  distance between player and player's targeted block is less than 2.5:
+    if {org.%uuid of player%} is "Arachnid":
+      player's pitch is between 64 and -64:
+        apply potion of slow falling of tier 1 without any particles to player for 10 seconds replacing the existing effect
+        push player upwards with speed 0.2
+
+on damage by player:
+  if {org.%attacker's uuid%} is "Shulk":
+    apply potion of levitation of tier 2 without any particles to victim for 2 seconds
+on player move:
+  if {org.%uuid of player%} is "Shulk":
+    apply potion of resistance tier 1 without any particles to player for 30 seconds replacing the existing effect
+on swap hand items:
+ if {org.%uuid of player%} is "Shulk":
+  open ender chest of player to player
+  play sound "block.shulker_box.open" to player
+
+on swap hand items:
+  if {org.%uuid of player%} is "Phantom":
+    if {phantominvis::%uuid of player%} isn't set:
+      set {phantominvis::%uuid of player%} to true
+      apply potion of invisibility of tier 1 without any particles to player for 30 seconds replacing the existing effect
+      apply potion of hunger of tier 1 without any particles to player for 5 seconds replacing the existing effect
+      apply potion of weakness of tier 2 without any particles to player for 5 seconds replacing the existing effect
+    else:
+      delete {phantominvis::%uuid of player%}
+      remove invisibility from the player
+      remove weakness from the player
+on player move:
+  if {org.%uuid of player%} is "Phantom":
+    if {phantominvis::%uuid of player%} is true:
+      apply potion of hunger of tier 1 without any particles to player for 5 seconds replacing the existing effect
+on player move:
+  if {org.%uuid of player%} is "Phantom":
+    set player's max health to 7
+
+on player move:
+  if {org.%uuid of player%} is "Evoker":
+    set player's max health to 6
+    apply potion of weakness of tier 1 without any particles to player for 30 seconds replacing the existing effect
+    apply potion of speed of tier 1 without any particles to the player for 30 seconds replacing the existing effect
+on swap hand items:
+  if {org.%uuid of player%} is "Evoker":
+    if difference between now and {OriginsAbilities::%player's uuid%.evokermagic.lastUsed} is less than 4 seconds:
+      cancel event
+    else:
+      summon evoker fangs 1 meter in front of player
+      summon evoker fangs 2 meters in front of player
+      summon evoker fangs 3 meters in front of player
+      summon evoker fangs 4 meters in front of player
+      summon evoker fangs 5 meters in front of player
+      summon evoker fangs 6 meters in front of player
+      summon evoker fangs 7 meters in front of player
+      set {OriginsAbilities::%player's uuid%.evokermagic.lastUsed} to now
+    player is sneaking:
+      execute command "/execute at %player% run kill @e[type=vex,distance=..100]"
+      if difference between now and {OriginsAbilities::%player's uuid%.evokervexsummon.lastUsed} is less than 15 seconds:
+        cancel event
+      else:
+        execute command "/execute at %player% run summon vex"
+        play 30 totem of undying 2.5 meters above the player's targeted entity
+        set {OriginsAbilities::%player's uuid%.evokervexsummon.lastUsed} to now
+on damage:
+  if {org.%victim's uuid%} is "Evoker":
+    if damage was caused by a potion:
+      cancel event
+
+on player move:
+  if {org.%uuid of player%} is "Inchling":
+    set player's scale attribute to 0.2
+    set player's movement speed attribute to 0.07
+    set player's entity interaction range attribute to 0.8
+    set player's max health to 6
+    set player's safe fall distance attribute to 8
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a chicken:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a player:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a parrot:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a creeper:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a vex:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a rabbit:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a armadillo:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a dolphin:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a bee:
+      make the player ride the player's targeted entity
+on swap hand items:
+  if {org.%uuid of player%} is "Inchling":
+    if the player's targeted entity is a bat:
+      make the player ride the player's targeted entity
+# on leftclick:
+#   player is sneaking:
+#     if "%player%" starts with ".":
+#       if {org.%uuid of player%} is "Inchling":
+#         if the player's targeted entity is a player:
+#            make the player ride the player's targeted entity
+
+on swap hand items:
+  if {org.%uuid of player%} is "Bee":
+    apply potion of levitation of tier 2 without any particles to player for 2 seconds replacing the existing effect
+    set player's safe fall distance attribute to 1000
+on player move:
+  if {org.%uuid of player%} is "Bee":
+    apply potion of slow falling of tier 1 without any particles to player for 30 seconds replacing the existing effect
+    set player's scale attribute to 0.6
+on rightclick:
+  if {org.%uuid of player%} is "Bee":
+    if clicked block is bee nest:
+      open ender chest of player to player
+on rightclick:
+  if {org.%uuid of player%} is "Bee":
+    if clicked block is beehive:
+      open ender chest of player to player
+on leftclick:
+  player is sneaking:
+    if "%player%" starts with ".":
+      if {org.%uuid of player%} is "Bee":
+        apply potion of levitation of tier 2 without any particles to player for 5 seconds replacing the existing effect
+
+on player move:
+  if {org.%uuid of player%} is "Ghastling":
+    apply potion of slow falling of tier 1 without any particles to player for 30 seconds replacing the existing effect
+    apply potion of fire resistance of tier 1 without any particles to the player for 30 seconds replacing the existing effect
+    set player's scale attribute to 1.5
+on damage by player:
+  if {org.%attacker's uuid%} is "Ghastling":
+    ignite the victim
+on swap hand items:
+  if {org.%uuid of player%} is "Ghastling":
+    if difference between now and {OriginsAbilities::%player's uuid%.ghastlingdash.lastUsed} is less than 2 seconds:
+      cancel event
+    else:
+      push player forward at speed 3
+      set {OriginsAbilities::%player's uuid%.ghastlingdash.lastUsed} to now
+#player is sneaking:
+#  if "%player%" starts with ".":
+#    if {org.%uuid of player%} is "Ghastling":
+#      if difference between now and {OriginsAbilities::%player's uuid%.ghastlingdash.lastUsed} is less than 2 seconds:
+#        cancel event
+#      else:
+#        push player forward at speed 3
+#        set {OriginsAbilities::%player's uuid%.ghastlingdash.lastUsed} to now
+
+
+on player move:
+  if {org.%uuid of player%} is "Hare":
+    apply potion of jump boost of tier 3 without any particles to the player for 30 seconds replacing the existing effect
+    apply potion of speed of tier 2 without any particles to the player for 30 seconds replacing the existing effect
+on player move:
+  if {org.%uuid of player%} is "Hare":
+    set player's scale attribute to 0.4
+    if block below the block below the player is dirt, sand, or grass:
+      apply potion of speed of tier 4 without any particles to the player for 4 seconds replacing the existing effect
+
+on player move:
+  if {org.%uuid of player%} is "Fox":
+    apply potion of speed of tier 3 without any particles to the player for 30 seconds replacing the existing effect
+    set player's scale attribute to 0.5
+    set player's safe fall distance attribute to 1000
+on swap hand items:
+  if {org.%uuid of player%} is "Fox":
+    if difference between now and {OriginsAbilities::%player's uuid%.foxleap.lastUsed} is less than 2 seconds:
+      cancel event
+    else:
+      push player forward at speed 2
+      apply potion of strength of tier 2 without any particles to the player for 4 seconds replacing the existing effect
+      set {OriginsAbilities::%player's uuid%.foxleap.lastUsed} to now
+
+on player move:
+  if {org.%uuid of player%} is "Reptilian":
+    apply potion of water breathing of tier 1 without any particles to the player for 30 seconds replacing the existing effect
+on swap hand items:
+  if {org.%uuid of player%} is "Reptilian":
+    if block at player is water:
+      if difference between now and {OriginsAbilities::%player's uuid%.reptiliandash.lastUsed} is less than 2.5 seconds:
+        cancel event
+      else:
+        push player forward at speed 2.5
+        set {OriginsAbilities::%player's uuid%.reptiliandash.lastUsed} to now
+on consume of cod:
+  if {org.%uuid of player%} is "Reptilian":
+    apply potion of saturation of tier 4 without any particles to the player for 5 seconds replacing the existing effect
+on consume of salmon:
+  if {org.%uuid of player%} is "Reptilian":
+    apply potion of saturation of tier 4 without any particles to the player for 5 seconds replacing the existing effect
+on damage:
+  if {org.%victim's uuid%} is "Reptilian":
+    if damage was caused by drowning:
+      cancel event
+
+on player move:
+  if {org.%uuid of player%} is "Skeleton":
+    if player is not wearing a helmet:
+      if time in world "world" is between 5:00 and 18:30:
+        if sunlight level at the player is greater than 14:
+          ignite the player for 1 second
+on swap hand items:
+  if {org.%uuid of player%} is "Skeleton":
+    if difference between now and {OriginsAbilities::%player's uuid%.skeletonarrow.lastUsed} is less than 0.5 seconds:
+      cancel event
+    else:
+      shoot an arrow from the player
+      set {OriginsAbilities::%player's uuid%.skeletonarrow.lastUsed} to now
+on pickup:
+  if {org.%uuid of player%} is "Skeleton":
+    if event-item is arrow:
+      cancel event
+on player move:
+  if {org.%uuid of player%} is "Skeleton":
+    set the player's food level to 5
+on right click:
+  player is holding a bone:
+    if {org.%uuid of player%} is "Skeleton":
+      if player's health is below 10:
+        remove 1 bone from player
+        heal player by 5 hearts
+
+on player move:
+  if {org.%uuid of player%} is "Husk":
+    set the player's food level to 5
+on right click:
+  player is holding a sand:
+    if {org.%uuid of player%} is "Husk":
+      if player's health is below 10:
+        remove 1 sand from player
+        heal player by 1.5 hearts
+on damage by player:
+  if {org.%attacker's uuid%} is "Husk":
+    apply hunger of tier 2 without any particles to victim for 10 seconds
+
+on player move:
+  if {org.%uuid of player%} is "Zombie":
+    if player is not wearing a helmet:
+      if time in world "world" is between 5:00 and 18:30:
+        if sunlight level at the player is greater than 14:
+          ignite the player for 1 second
+on player move:
+  if {org.%uuid of player%} is "Zombie":
+    set the player's food level to 5
+    apply potion of strength of tier 2 without any particles to the player for 30 seconds replacing the existing effect
+on right click:
+  player is holding a rotten flesh:
+    if {org.%uuid of player%} is "Zombie":
+      if player's health is below 10:
+        remove 1 rotten flesh from player
+        heal player by 5 hearts
+
+
+        # ORIGIN SWAP PATCHES
+
+on player move:
+  if {org.%uuid of player%} is not "Enderian" or "Phantom" or "Evoker" or "Inchling":
+    set player's max health to 10
+  if {org.%uuid of player%} is not "Elytrian":
+    execute command "/execute at @a[tag=!elytraguy] run clear @a[tag=!elytraguy] elytra[enchantments={levels:{binding_curse:1,vanishing_curse:1},show_in_tooltip:false},unbreakable={},custom_model_data=2]"
+    execute command "/tag %player% remove elytraguy"
+  if {org.%uuid of player%} is not "Feline" or "Bee" or "Fox" or "Inchling":
+    set player's safe fall distance attribute to 4
+  if {org.%uuid of player%} is not "Bee" or "Inchling" or "Ghastling" or "Hare" or "Fox":
+    set player's scale attribute to 1
+  if {org.%uuid of player%} is not "Inchling":
+    set player's movement speed attribute to 0.1
+  if {org.%uuid of player%} is not "Inchling":
+    set player's entity interaction range attribute to 3
+  if {org.%uuid of player%} is not "Evoker":
+    execute command "/execute as %player% run team leave evoker @s"
+  if {org.%uuid of player%} is not "Ghastling":
+    delete {ghastlingplatform::%uuid of player%}
+
+      # Evoker
+
+on player move:
+  if {org.%uuid of player%} is "Evoker":
+    execute command "/execute as %player% run team join evoker @s"
+    execute command "/execute as %player% run team join evoker @e[type=vex,pillager,ravager,witch,vindicator]"
+
+
+
